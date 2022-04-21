@@ -1,4 +1,4 @@
-package com.taraskrasitskiy.seleniumtasks.ui;
+package com.taraskrasitskiy.seleniumtasks.timvroom.ui;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
