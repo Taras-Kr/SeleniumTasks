@@ -5,13 +5,11 @@ import org.testng.annotations.Test;
 
 public class TestMethod extends TestRunner {
     @Test
-    public void openHomePage(){
+    public void openHomePage() {
         try {
             Thread.sleep(10000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
-
-
 }
