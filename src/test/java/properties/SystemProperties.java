@@ -17,6 +17,18 @@ public class SystemProperties {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
+
+    public String getBaseUrl(){
+        return properties.getProperty("baseUrl");
+    }
+
+    public String getChromeDriver(){
+        return properties.getProperty("chromeWebDriverPath");
+    }
+
+    public String getBrowser(){
+        return properties.getProperty("browser");
+    }
+
 }
