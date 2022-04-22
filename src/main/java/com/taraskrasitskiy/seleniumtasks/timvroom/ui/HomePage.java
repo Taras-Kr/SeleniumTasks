@@ -14,6 +14,11 @@ public class HomePage {
         this.driver = driver;
     }
 
+    @Step("HomePage: Get url")
+    public String getUrl(){
+        return driver.getCurrentUrl();
+    }
+
     @Step("Home Page: Get web element Input AnswerOne")
     public WebElement getAnswerOneInput() {
         answerOneInput = driver.findElement(By.cssSelector("input#answer1"));
@@ -37,4 +42,21 @@ public class HomePage {
     public String getTextFromInput(WebElement input) {
         return input.getAttribute("value");
     }
+
+    @Step("Home Page: Get top header")
+    public String getTopHeader(){
+        return driver.findElement(By.cssSelector("h2#tophead")).getText();
+    }
+
+    @Step("HomePage: Get Name input")
+    public WebElement getNameInput(){
+        return  driver.findElement(By.id("name"));
+    }
+
+    @Step("Home Page: Set Occupation")
+    public HomePage setOccupation(String occupation){
+        driver.findElement(By.cssSelector(String.format("option[value='%s']", occupation))).click();
+        return this;
+    }
+
 }
