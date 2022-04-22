@@ -1,11 +1,13 @@
 package com.taraskrasitskiy.seleniumtasks.timvroom.ui;
 
 import com.taraskrasitskiy.seleniumtasks.timvroom.ui.runner.TestRunner;
+import io.qameta.allure.Description;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class TestSuite extends TestRunner {
+
     @Test
     public void verifiesThatHomePageIsOpened(){
         HomePage homePage = new HomePage(driver);
@@ -17,6 +19,7 @@ public class TestSuite extends TestRunner {
     }
 
     @Test
+    @Description("Verifies that page title correctly entered in the input")
     public void verifiesThatPageTitleCorrectlyEnteredInInput(){
         HomePage homePage = new HomePage(driver);
         homePage.setTextInInput(homePage.getAnswerOneInput(), homePage.getPageTitle());
@@ -24,6 +27,4 @@ public class TestSuite extends TestRunner {
         String actual = homePage.getTextFromInput(homePage.getAnswerOneInput());
         Assert.assertEquals(actual, expected);
     }
-
-
 }
