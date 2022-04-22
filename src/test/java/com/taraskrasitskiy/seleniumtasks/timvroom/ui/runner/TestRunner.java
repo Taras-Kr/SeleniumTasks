@@ -9,7 +9,7 @@ import properties.SystemProperties;
 import java.util.concurrent.TimeUnit;
 
 public class TestRunner {
-    private WebDriver driver;
+    protected static WebDriver driver;
     private SystemProperties properties = new SystemProperties();
 
     @BeforeClass
