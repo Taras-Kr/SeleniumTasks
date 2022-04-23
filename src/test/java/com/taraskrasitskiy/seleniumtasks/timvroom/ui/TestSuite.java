@@ -28,6 +28,8 @@ public class TestSuite extends TestRunner {
         String expected = "Selenium Playground";
         String actual = homePage.getTextFromInput(homePage.getAnswerOneInput());
         Assert.assertEquals(actual, expected);
+        homePage.checkResults();
+        Assert.assertEquals(homePage.getResultTask(1), "OK");
     }
 
     @Test
@@ -38,6 +40,8 @@ public class TestSuite extends TestRunner {
         homePage.setTextInInput(homePage.getNameInput(), expectedName);
         String actualName = homePage.getTextFromInput(homePage.getNameInput());
         Assert.assertEquals(actualName, expectedName);
+        homePage.checkResults();
+        Assert.assertEquals(homePage.getResultTask(2), "OK");
     }
 
     @Test
@@ -48,5 +52,27 @@ public class TestSuite extends TestRunner {
         String expectedOccupation = Occupation.SCIENCE_FICTION_AUTHOR.getText();
         String actualOccupation = homePage.getOccupation();
         Assert.assertEquals(actualOccupation, expectedOccupation);
+        homePage.checkResults();
+        Assert.assertEquals(homePage.getResultTask(3), "OK");
+    }
+    @Test
+    @Description("Verifies that blue boxes count correctly")
+    public void verifiesThatBlueBoxesCountCorrectly() {
+        HomePage homePage = new HomePage(driver);
+        String countBlueBoxes = String.valueOf(homePage.countBlueBoxes());
+        homePage.enterCountBlueBoxesIntoAnswers(countBlueBoxes);
+        String actualCountBlueBoxes = homePage.getTextFromAnswerFour();
+        Assert.assertEquals(actualCountBlueBoxes, String.valueOf(homePage.countBlueBoxes()));
+        homePage.checkResults();
+        Assert.assertEquals(homePage.getResultTask(4), "OK");
+    }
+
+    @Test
+    @Description("Verifies that click on \'click me\' link successful")
+    public void verifiesThatClickMeOpened(){
+        HomePage homePage = new HomePage(driver);
+        homePage.openClickMe();
+        homePage.checkResults();
+        Assert.assertEquals(homePage.getResultTask(5), "OK");
     }
 }
