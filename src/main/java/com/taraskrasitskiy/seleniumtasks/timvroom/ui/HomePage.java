@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class HomePage {
 
@@ -12,6 +13,11 @@ public class HomePage {
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
+    }
+
+    @Step("HomePage: Get url")
+    public String getUrl(){
+        return driver.getCurrentUrl();
     }
 
     @Step("Home Page: Get web element Input AnswerOne")
@@ -37,4 +43,27 @@ public class HomePage {
     public String getTextFromInput(WebElement input) {
         return input.getAttribute("value");
     }
+
+    @Step("Home Page: Get top header")
+    public String getTopHeader(){
+        return driver.findElement(By.cssSelector("h2#tophead")).getText();
+    }
+
+    @Step("HomePage: Get Name input")
+    public WebElement getNameInput(){
+        return  driver.findElement(By.id("name"));
+    }
+
+    @Step("Home Page: Set Occupation")
+    public HomePage setOccupation(String occupation){
+        driver.findElement(By.cssSelector(String.format("option[value='%s']", occupation))).click();
+        return this;
+    }
+
+    @Step("Home Page: Get Occupation")
+    public String getOccupation() {
+        Select selectOccupation = new Select(driver.findElement(By.name("occupation")));
+        return selectOccupation.getFirstSelectedOption().getText();
+    }
+
 }
