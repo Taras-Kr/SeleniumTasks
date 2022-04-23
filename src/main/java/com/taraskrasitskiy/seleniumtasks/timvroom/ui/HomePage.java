@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class HomePage {
 
@@ -57,6 +58,12 @@ public class HomePage {
     public HomePage setOccupation(String occupation){
         driver.findElement(By.cssSelector(String.format("option[value='%s']", occupation))).click();
         return this;
+    }
+
+    @Step("Home Page: Get Occupation")
+    public String getOccupation() {
+        Select selectOccupation = new Select(driver.findElement(By.name("occupation")));
+        return selectOccupation.getFirstSelectedOption().getText();
     }
 
 }

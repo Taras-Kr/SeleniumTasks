@@ -2,7 +2,6 @@ package com.taraskrasitskiy.seleniumtasks.timvroom.ui;
 
 import com.taraskrasitskiy.seleniumtasks.timvroom.ui.runner.TestRunner;
 import io.qameta.allure.Description;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -43,13 +42,11 @@ public class TestSuite extends TestRunner {
 
     @Test
     @Description("Verifies that Occupation correctly selected in the Select")
-    public void verifiesThatOccupationCorrectlySelected(){
+    public void verifiesThatOccupationCorrectlySelected() {
         HomePage homePage = new HomePage(driver);
         homePage.setOccupation(Occupation.SCIENCE_FICTION_AUTHOR.getValue());
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        String expectedOccupation = Occupation.SCIENCE_FICTION_AUTHOR.getText();
+        String actualOccupation = homePage.getOccupation();
+        Assert.assertEquals(actualOccupation, expectedOccupation);
     }
 }
