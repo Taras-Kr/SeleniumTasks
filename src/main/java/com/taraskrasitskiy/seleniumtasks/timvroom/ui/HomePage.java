@@ -64,4 +64,40 @@ public class HomePage {
         return selectOccupation.getFirstSelectedOption().getText();
     }
 
+    @Step("Home Page: Count blue boxes")
+    public int countBlueBoxes(){
+        return  driver.findElements(By.cssSelector("span.bluebox")).size();
+    }
+
+    @Step("Home Page: Enter count blue boxes into answers")
+    public HomePage enterCountBlueBoxesIntoAnswers(String text){
+        WebElement answerInput = driver.findElement(By.id("answer4"));
+        answerInput.click();
+        answerInput.clear();
+        answerInput.sendKeys(text);
+        return this;
+    }
+
+    @Step("Home Page: Get text from answer 4")
+    public String getTextFromAnswerFour(){
+        return driver.findElement(By.id("answer4")).getAttribute("value");
+    }
+
+    @Step("Home Page: Open \'click me\' link")
+    public HomePage openClickMe(){
+        driver.findElement(By.linkText("click me")).click();
+        return new HomePage(driver);
+    }
+
+    @Step("Home Page: Check results")
+    public HomePage checkResults(){
+        driver.findElement(By.xpath("//input[@id='checkresults']")).click();
+        return new HomePage(driver);
+    }
+
+    @Step("Home Page: Get result task{taskNumber}")
+    public String getResultTask(int taskNumber){
+        return driver.findElement(By.xpath(String.format("//span[@id='ok_%s']", taskNumber))).getText();
+    }
+
 }
