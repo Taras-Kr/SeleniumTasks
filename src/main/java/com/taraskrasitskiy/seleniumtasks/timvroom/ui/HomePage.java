@@ -9,21 +9,19 @@ import org.openqa.selenium.support.ui.Select;
 public class HomePage {
 
     private WebDriver driver;
-    private WebElement answerOneInput;
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }
 
     @Step("HomePage: Get url")
-    public String getUrl(){
+    public String getUrl() {
         return driver.getCurrentUrl();
     }
 
     @Step("Home Page: Get web element Input AnswerOne")
     public WebElement getAnswerOneInput() {
-        answerOneInput = driver.findElement(By.cssSelector("input#answer1"));
-        return answerOneInput;
+        return driver.findElement(By.cssSelector("input#answer1"));
     }
 
     @Step("Home Page: Get page title")
