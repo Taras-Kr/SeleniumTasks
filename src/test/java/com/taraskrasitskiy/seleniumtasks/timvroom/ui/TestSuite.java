@@ -84,4 +84,14 @@ public class TestSuite extends TestRunner {
         homePage.checkResults();
         Assert.assertEquals(homePage.getResultTask(6), "OK");
     }
+
+    @Test
+    @Description("Verifies that javascript script runs")
+    public void verifyThatScriptRuns(){
+        HomePage homePage = new HomePage(driver);
+        homePage.runScript("ran_this_js_function()");
+        homePage.checkResults();
+        Assert.assertEquals(homePage.getResultTask(7), "OK");
+    }
+
 }
