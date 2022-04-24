@@ -60,7 +60,7 @@ public class TestSuite extends TestRunner {
     public void verifiesThatBlueBoxesCountCorrectly() {
         HomePage homePage = new HomePage(driver);
         String countBlueBoxes = String.valueOf(homePage.countBlueBoxes());
-        homePage.enterCountBlueBoxesIntoAnswers(countBlueBoxes);
+        homePage.enterAnswerFour(countBlueBoxes);
         String actualCountBlueBoxes = homePage.getTextFromAnswerFour();
         Assert.assertEquals(actualCountBlueBoxes, String.valueOf(homePage.countBlueBoxes()));
         homePage.checkResults();
@@ -74,5 +74,14 @@ public class TestSuite extends TestRunner {
         homePage.openClickMe();
         homePage.checkResults();
         Assert.assertEquals(homePage.getResultTask(5), "OK");
+    }
+
+    @Test
+    @Description("Verifies that red box css class got correctly")
+    public void verifyThatRedBoxClassGetCorrectly(){
+        HomePage homePage = new HomePage(driver);
+        homePage.enterAnswerSix(homePage.getRedBoxClass());
+        homePage.checkResults();
+        Assert.assertEquals(homePage.getResultTask(6), "OK");
     }
 }

@@ -70,7 +70,7 @@ public class HomePage {
     }
 
     @Step("Home Page: Enter count blue boxes into answers")
-    public HomePage enterCountBlueBoxesIntoAnswers(String text){
+    public HomePage enterAnswerFour(String text){
         WebElement answerInput = driver.findElement(By.id("answer4"));
         answerInput.click();
         answerInput.clear();
@@ -86,13 +86,13 @@ public class HomePage {
     @Step("Home Page: Open \'click me\' link")
     public HomePage openClickMe(){
         driver.findElement(By.linkText("click me")).click();
-        return new HomePage(driver);
+        return this;
     }
 
     @Step("Home Page: Check results")
     public HomePage checkResults(){
         driver.findElement(By.xpath("//input[@id='checkresults']")).click();
-        return new HomePage(driver);
+        return this;
     }
 
     @Step("Home Page: Get result task{taskNumber}")
@@ -100,4 +100,22 @@ public class HomePage {
         return driver.findElement(By.xpath(String.format("//span[@id='ok_%s']", taskNumber))).getText();
     }
 
+    @Step("Home Page: Enter answer six")
+    public HomePage enterAnswerSix(String text){
+        WebElement answerSixInput = driver.findElement(By.xpath("//input[@id='answer6']"));
+        answerSixInput.click();
+        answerSixInput.clear();
+        answerSixInput.sendKeys(text);
+        return this;
+    }
+
+    @Step("Home Page: Get text from answer six input ")
+    public String getTextFromAnswerSix() {
+        return driver.findElement(By.xpath("//input[@id='answer6']")).getAttribute("value");
+    }
+
+    @Step("Home Page: Get Red Box class")
+    public String getRedBoxClass(){
+        return driver.findElement(By.xpath("//span[@id = 'redbox']")).getAttribute("class");
+    }
 }
