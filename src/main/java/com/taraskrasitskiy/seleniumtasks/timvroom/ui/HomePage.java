@@ -2,6 +2,7 @@ package com.taraskrasitskiy.seleniumtasks.timvroom.ui;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -117,5 +118,12 @@ public class HomePage {
     @Step("Home Page: Get Red Box class")
     public String getRedBoxClass(){
         return driver.findElement(By.xpath("//span[@id = 'redbox']")).getAttribute("class");
+    }
+
+    @Step("Home Page: Run javascript script")
+    public HomePage runScript(String script){
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript(script);
+        return this;
     }
 }

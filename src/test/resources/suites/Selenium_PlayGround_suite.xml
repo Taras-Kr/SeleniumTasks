@@ -13,6 +13,7 @@
                     <include name="verifiesThatBlueBoxesCountCorrectly"/>
                     <include name="verifiesThatClickMeOpened"/>
                     <include name="verifyThatRedBoxClassGetCorrectly"/>
+                    <include name="verifyThatScriptRuns"/>
                 </methods>
             </class>
         </classes>
