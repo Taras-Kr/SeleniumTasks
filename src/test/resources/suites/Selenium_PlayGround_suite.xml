@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Selenium PlayGround suite">
+    <test verbose="2" preserve-order="true"
+          name="All Tests Group">
+        <classes>
+            <class name="com.taraskrasitskiy.seleniumtasks.timvroom.ui.TestSuite">
+                <methods>
+                    <include name="verifiesThatHomePageIsOpened"/>
+                    <include name="verifiesThatPageTitleCorrectlyEnteredInInput"/>
+                    <include name="verifiesThatNameEnteredInInput"/>
+                    <include name="verifiesThatOccupationCorrectlySelected"/>
+                    <include name="verifiesThatBlueBoxesCountCorrectly"/>
+                    <include name="verifiesThatClickMeOpened"/>
+                    <include name="verifyThatRedBoxClassGetCorrectly"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
