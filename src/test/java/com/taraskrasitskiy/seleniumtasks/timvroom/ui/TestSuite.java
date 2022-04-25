@@ -122,4 +122,13 @@ public class TestSuite extends TestRunner {
         Assert.assertEquals(homePage.getResultTask(10), "OK");
     }
 
+    @Test
+    @Description("Verifies boxes positions")
+    public void verifyBoxesPositions(){
+        HomePage homePage = new HomePage(driver);
+        homePage.enterAnswerEleven();
+        homePage.checkResults();
+        Assert.assertEquals(homePage.getResultTask(11), "OK");
+    }
+
 }
