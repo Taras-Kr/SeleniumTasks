@@ -131,4 +131,22 @@ public class TestSuite extends TestRunner {
         Assert.assertEquals(homePage.getResultTask(11), "OK");
     }
 
+    @Test
+    @Description ("Verifies that element by id of ishere is on the page")
+    public void verifyThatElementOnPage(){
+        HomePage homePage = new HomePage(driver);
+        homePage.enterAnswerTwelve(homePage.isItemOnPage());
+        homePage.checkResults();
+        Assert.assertEquals(homePage.getResultTask(13), "OK");
+    }
+
+    @Test
+    @Description("Verifies that browser size set to 850x650")
+    public void verifyThatBrowserSizeChanged(){
+       HomePage homePage = new HomePage(driver);
+       homePage.setBrowserSize(850,650);
+        homePage.checkResults();
+        Assert.assertEquals(homePage.getResultTask(12), "OK");
+    }
+
 }
