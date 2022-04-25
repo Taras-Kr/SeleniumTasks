@@ -1,10 +1,7 @@
 package com.taraskrasitskiy.seleniumtasks.timvroom.ui;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
 public class HomePage {
@@ -162,6 +159,27 @@ public class HomePage {
         answerEightInput.click();
         answerEightInput.clear();
         answerEightInput.sendKeys(text);
+        return this;
+    }
+
+    @Step("Home Page: Get coordinates Orange Box")
+    public Point getCoordinatesOrangeBox(){
+        return driver.findElement(By.xpath("//span[@id='orangebox']")).getLocation();
+    }
+
+    @Step("Home Page: Get coordinates Green Box")
+    public Point getCoordinatesGreenBox(){
+        return driver.findElement(By.xpath("//span[@id='greenbox']")).getLocation();
+    }
+    @Step("Home Page: Enter answer Eleven")
+    public HomePage enterAnswerEleven(){
+        Point coordinatesGreenBox = getCoordinatesGreenBox();
+        Point coordinatesOrangeBox = getCoordinatesOrangeBox();
+        WebElement answerEightInput = driver.findElement(By.xpath("//input[@id='answer11']"));
+        answerEightInput.click();
+        answerEightInput.clear();
+        String answer = coordinatesGreenBox.getY() < coordinatesOrangeBox.getY() ? "green" : "orange";
+        answerEightInput.sendKeys(answer);
         return this;
     }
 

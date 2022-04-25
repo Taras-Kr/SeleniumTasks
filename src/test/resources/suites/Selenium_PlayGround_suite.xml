@@ -17,6 +17,7 @@
                     <include name="verifyThatFunctionRuns"/>
                     <include name="verifyThatWroteBookIsSelected"/>
                     <include name="verifyThatTextFromRedBoxGetsCorrectly"/>
+                    <include name="verifyBoxesPositions"/>
                 </methods>
             </class>
         </classes>
