@@ -151,6 +151,20 @@ public class HomePage {
         return this;
     }
 
+    @Step("Home Page: Get text from red box")
+    public String getTexFromRedBox(){
+        return driver.findElement(By.xpath("//span[@id='redbox']")).getText();
+    }
+
+    @Step("Home Page: Enter answer Ten")
+    public HomePage enterAnswerTen(String text){
+        WebElement answerEightInput = driver.findElement(By.xpath("//input[@id='answer10']"));
+        answerEightInput.click();
+        answerEightInput.clear();
+        answerEightInput.sendKeys(text);
+        return this;
+    }
+
 }
 
 
