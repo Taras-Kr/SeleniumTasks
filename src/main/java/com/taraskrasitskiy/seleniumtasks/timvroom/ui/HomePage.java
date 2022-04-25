@@ -2,7 +2,11 @@ package com.taraskrasitskiy.seleniumtasks.timvroom.ui;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+
 
 public class HomePage {
 
@@ -206,6 +210,28 @@ public class HomePage {
         driver.manage().window().setSize(dimension);
         return this;
     }
+
+    @Step("Home Page: Click 'click than wait' link")
+    public HomePage openClickThanWaitLink(){
+        driver.findElement(By.linkText("click then wait")).click();
+        return this;
+    }
+
+    @Step("Home Page: Click 'click after wait' link")
+    public HomePage openClickAfterWaitLink(){
+        (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.presenceOfElementLocated(By.linkText("click after wait")))
+                .click();
+        return this;
+    }
+
+    @Step("Home Page: Click OK on the confirm")
+    public HomePage clickOkOnConfirm(){
+        Alert confirmation = driver.switchTo().alert();
+        confirmation.accept();
+        return this;
+    }
+
 
 }
 

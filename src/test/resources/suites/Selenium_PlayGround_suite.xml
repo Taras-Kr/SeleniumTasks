@@ -20,6 +20,7 @@
                     <include name="verifyBoxesPositions"/>
                     <include name="verifyThatBrowserSizeChanged"/>
                     <include name="verifyThatElementOnPage"/>
+                    <include name="verifiesThatLinkOpenedAfterWait"/>
                 </methods>
             </class>
         </classes>

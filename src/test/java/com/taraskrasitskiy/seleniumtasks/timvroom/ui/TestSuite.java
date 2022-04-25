@@ -149,4 +149,19 @@ public class TestSuite extends TestRunner {
         Assert.assertEquals(homePage.getResultTask(12), "OK");
     }
 
+    @Test
+    @Description("Verifies that link opened after wait")
+    public void verifiesThatLinkOpenedAfterWait(){
+        HomePage homePage = new HomePage(driver);
+        homePage.openClickThanWaitLink();
+        homePage.openClickAfterWaitLink();
+        homePage.clickOkOnConfirm();
+        homePage.checkResults();
+        SoftAssert soft = new SoftAssert();
+        soft.assertEquals(homePage.getResultTask(15), "OK");
+        soft.assertEquals(homePage.getResultTask(16), "OK");
+        soft.assertAll();
+    }
+
+
 }
