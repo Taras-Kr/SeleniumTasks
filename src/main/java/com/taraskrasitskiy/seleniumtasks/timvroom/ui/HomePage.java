@@ -183,6 +183,30 @@ public class HomePage {
         return this;
     }
 
+    @Step("Home Page: Check that element by id of ishere is on the page")
+    public String isItemOnPage() {
+        if (driver.findElements(By.id("ishere")).size() != 0) {
+            return "yes";
+        }
+        return "no";
+    }
+
+    @Step("Home Page: Enter answer Twelve")
+    public HomePage enterAnswerTwelve(String text){
+        WebElement answerEightInput = driver.findElement(By.xpath("//input[@id='answer13']"));
+        answerEightInput.click();
+        answerEightInput.clear();
+        answerEightInput.sendKeys(isItemOnPage());
+        return this;
+    }
+
+    @Step("Home Page: Set browser size")
+    public HomePage setBrowserSize(int width, int height){
+        Dimension dimension = new Dimension(width, height);
+        driver.manage().window().setSize(dimension);
+        return this;
+    }
+
 }
 
 

@@ -18,6 +18,8 @@
                     <include name="verifyThatWroteBookIsSelected"/>
                     <include name="verifyThatTextFromRedBoxGetsCorrectly"/>
                     <include name="verifyBoxesPositions"/>
+                    <include name="verifyThatBrowserSizeChanged"/>
+                    <include name="verifyThatElementOnPage"/>
                 </methods>
             </class>
         </classes>
