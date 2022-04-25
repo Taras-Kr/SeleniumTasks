@@ -142,6 +142,15 @@ public class HomePage {
         return (Long)js.executeScript(String.format("return %s", jsFunction));
     }
 
+    @Step("Home Page: Select radio button 'Wrote Book'")
+    public HomePage selectWroteBook(){
+        WebElement radioButton = driver.findElement(By.xpath("//input[@value='wrotebook']"));
+        if(!radioButton.isSelected()){
+            radioButton.click();
+        }
+        return this;
+    }
+
 }
 
 
