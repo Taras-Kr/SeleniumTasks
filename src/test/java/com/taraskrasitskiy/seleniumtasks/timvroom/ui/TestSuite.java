@@ -68,7 +68,7 @@ public class TestSuite extends TestRunner {
     }
 
     @Test
-    @Description("Verifies that click on \'click me\' link successful")
+    @Description("Verifies that click on 'click me' link successful")
     public void verifiesThatClickMeOpened(){
         HomePage homePage = new HomePage(driver);
         homePage.openClickMe();
@@ -92,6 +92,16 @@ public class TestSuite extends TestRunner {
         homePage.runScript("ran_this_js_function()");
         homePage.checkResults();
         Assert.assertEquals(homePage.getResultTask(7), "OK");
+    }
+
+    @Test
+    @Description("Verifies that javascript script runs")
+    public void verifyThatFunctionRuns() {
+        HomePage homePage = new HomePage(driver);
+        Long result = homePage.runFunction("got_return_from_js_function();");
+        homePage.enterAnswerEight(String.valueOf(result));
+        homePage.checkResults();
+        Assert.assertEquals(homePage.getResultTask(8), "OK");
     }
 
 }
