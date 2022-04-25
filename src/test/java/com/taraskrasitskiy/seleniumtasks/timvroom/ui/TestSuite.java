@@ -104,4 +104,13 @@ public class TestSuite extends TestRunner {
         Assert.assertEquals(homePage.getResultTask(8), "OK");
     }
 
+    @Test
+    @Description("Verifies that radio button 'Wrote book' is selected")
+    public void verifyThatWroteBookIsSelected() {
+        HomePage homePage = new HomePage(driver);
+        homePage.selectWroteBook();
+        homePage.checkResults();
+        Assert.assertEquals(homePage.getResultTask(9), "OK");
+    }
+
 }
