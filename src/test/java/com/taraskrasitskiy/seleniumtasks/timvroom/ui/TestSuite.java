@@ -113,4 +113,13 @@ public class TestSuite extends TestRunner {
         Assert.assertEquals(homePage.getResultTask(9), "OK");
     }
 
+    @Test
+    @Description("Verifies that text from red box gets correctly")
+    public void verifyThatTextFromRedBoxGetsCorrectly() {
+        HomePage homePage = new HomePage(driver);
+        homePage.enterAnswerTen(homePage.getTexFromRedBox());
+        homePage.checkResults();
+        Assert.assertEquals(homePage.getResultTask(10), "OK");
+    }
+
 }
