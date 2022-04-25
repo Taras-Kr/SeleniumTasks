@@ -84,7 +84,7 @@ public class HomePage {
         return driver.findElement(By.id("answer4")).getAttribute("value");
     }
 
-    @Step("Home Page: Open \'click me\' link")
+    @Step("Home Page: Open 'click me' link")
     public HomePage openClickMe(){
         driver.findElement(By.linkText("click me")).click();
         return this;
@@ -126,4 +126,23 @@ public class HomePage {
         js.executeScript(script);
         return this;
     }
+
+    @Step("Home Page: Enter answer eight")
+    public HomePage enterAnswerEight(String text){
+        WebElement answerEightInput = driver.findElement(By.xpath("//input[@id='answer8']"));
+        answerEightInput.click();
+        answerEightInput.clear();
+        answerEightInput.sendKeys(text);
+        return this;
+    }
+
+    @Step("Home Page: Run javascript function")
+    public Long runFunction(String jsFunction) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        return (Long)js.executeScript(String.format("return %s", jsFunction));
+    }
+
 }
+
+
+
