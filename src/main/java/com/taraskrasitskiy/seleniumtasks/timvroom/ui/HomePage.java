@@ -232,6 +232,14 @@ public class HomePage {
         return this;
     }
 
+    @Step("Home Page: Check that purplebox visible")
+    public String isPurpleBoxVisible(){
+        if(driver.findElement(By.id("purplebox")).isDisplayed()){
+            return "yes";
+        }
+        return "no";
+    }
+
 
 }
 
